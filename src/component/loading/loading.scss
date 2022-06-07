@@ -1,0 +1,45 @@
+.loading{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: orangered;
+    ul{
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%,-50%);
+        li{
+            width: 2px;
+            background: orangered;
+            position: absolute;
+            height: 10px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin:0 auto;
+            animation: loading 1s infinite linear;
+            @for $i from 1 through 12{
+                &:nth-child(#{$i}){
+                    transform:rotateZ(30deg * $i) translateY(12px);
+                    animation-delay: 0.1s*$i;
+                    
+                }
+            }
+        }
+    }
+}
+@keyframes loading {
+    0%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
